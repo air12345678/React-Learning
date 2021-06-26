@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useContext}  from 'react';
 
+import Login from './components/Login/Login';
+import Home from './components/Home/Home';
+import MainHeader from './components/MainHeader/MainHeader';
+import AuthContext from './components/Context/auth-context';
 function App() {
+const ctx = useContext(AuthContext)
+  //const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // const loginHandler = (email, password) => {
+  //   // We should of course check email and password
+  //   // But it's just a dummy/ demo anyways
+  //   localStorage.setItem('isLoggedIn','1')
+  //   setIsLoggedIn(true);
+  //   console.log(isLoggedIn);
+  // };
+  // useEffect(()=>{
+  //   const storedUSerLoggedInformation  = localStorage.getItem('isLoggedIn')
+  //   if(storedUSerLoggedInformation === '1'){
+  //     setIsLoggedIn(true);
+  //   }
+  // },[]);
+  // const logoutHandler = () => {
+  //   localStorage.removeItem('isLoggedIn');
+  //   setIsLoggedIn(false);
+  //   console.log(isLoggedIn);
+  // };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+       {/* <AuthContext.Provider value = {{
+        isLoggedIn:isLoggedIn,
+        onLogout:logoutHandler
+      }}> */}
+      <MainHeader  />
+      <main>
+        {!ctx.isLoggedIn && <Login />}
+        {ctx.isLoggedIn && <Home  />}
+      </main>
+      {/* </AuthContext.Provider> */}
+     </React.Fragment>
   );
 }
 
