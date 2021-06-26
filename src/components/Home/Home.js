@@ -6,12 +6,12 @@ import classes from './Home.module.css';
 import AuthContext from '../../store/auth-context';
 
 const Home = (props) => {
-  const ctx = useContext(AuthContext);
+  const context = useContext(AuthContext);
 
   return (
     <Card className={classes.home}>
       <h1>Welcome back!</h1>
-      <Button onClick={ctx.onLogout}>Logout</Button>
+      <Button onClick={context.onLogout}>Logout</Button>
     </Card>
   );
 };
