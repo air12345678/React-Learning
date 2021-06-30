@@ -10,7 +10,7 @@ const Home = (props) => {
 
   return (
     <Card className={classes.home}>
-      <h1>Welcome Back!!!</h1>
+      <h1>Welcome Back😃</h1>
       <Button onClick={context.onLogout}>Logout</Button>
     </Card>
   );
